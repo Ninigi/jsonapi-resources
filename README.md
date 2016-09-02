@@ -751,7 +751,6 @@ section for additional details on raising errors.
 ```ruby
 class BaseResource < JSONAPI::Resource
   def records_for(relation_name)
-    context = options[:context]
     records = _model.public_send(relation_name)
 
     unless context[:current_user].can_view?(records)
